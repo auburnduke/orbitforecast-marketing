@@ -545,7 +545,7 @@ footer a:hover { color: white; }
 
   <p class="hero-sub fade-up">OrbitForecast connects to your bank accounts and gives you a clear, honest picture of your cash flow — what's coming in, what's going out, and what's ahead.</p>
 
-  <form class="hero-form fade-up" onsubmit="handleSignup(event, this)">
+  <form class="hero-form fade-up" data-source="hero" onsubmit="handleSignup(event, this)">
     <input type="email" class="email-input" placeholder="your@email.com" required autocomplete="email">
     <button type="submit" class="submit-btn">Get early access</button>
   </form>
@@ -727,7 +727,7 @@ footer a:hover { color: white; }
 <section class="cta-section" id="early-access">
   <h2 class="section-title fade-up">Ready to see clearly?</h2>
   <p class="cta-sub fade-up">Join the waitlist and be first to know when OrbitForecast opens to the public.</p>
-  <form class="cta-form fade-up" onsubmit="handleSignup(event, this)">
+  <form class="cta-form fade-up" data-source="cta" onsubmit="handleSignup(event, this)">
     <input type="email" class="email-input" placeholder="your@email.com" required autocomplete="email">
     <button type="submit" class="submit-btn">Get early access</button>
   </form>
@@ -764,14 +764,37 @@ footer a:hover { color: white; }
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
 
-  function handleSignup(e, form) {
+  async function handleSignup(e, form) {
     e.preventDefault();
     const btn = form.querySelector('.submit-btn');
     const input = form.querySelector('.email-input');
-    btn.textContent = "You're on the list! 🎉";
-    btn.classList.add('success');
-    input.disabled = true;
+    const email = input.value.trim();
+    const source = form.dataset.source || 'homepage';
+
+    btn.textContent = 'Joining...';
     btn.disabled = true;
+    input.disabled = true;
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source })
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        btn.textContent = "You're on the list! 🎉";
+        btn.classList.add('success');
+      } else {
+        throw new Error(data.error || 'Unknown error');
+      }
+    } catch (err) {
+      btn.textContent = 'Try again';
+      btn.disabled = false;
+      input.disabled = false;
+      console.error('Signup error:', err);
+    }
   }
 </script>
 </body>
