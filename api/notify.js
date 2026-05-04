@@ -22,7 +22,7 @@ export default async function handler(req) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: 'OrbitForecast <noreply@orbitforecast.com>',
+        from: 'OrbitForecast <admin@jwduke.ai>',
         to: 'jwduke@gmail.com',
         subject: `New waitlist signup: ${email}`,
         html: `
