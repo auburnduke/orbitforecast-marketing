@@ -23,7 +23,7 @@ export default async function handler(req) {
       },
       body: JSON.stringify({
         from: 'OrbitForecast <admin@jwduke.ai>',
-        to: 'jwduke@gmail.com',
+        to: 'admin@jwduke.ai',
         subject: `New waitlist signup: ${email}`,
         html: `
           <div style="font-family: sans-serif; max-width: 480px; margin: 0 auto; padding: 32px;">
