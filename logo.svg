@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48" width="200" height="48" role="img" aria-label="OrbitForecast">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Icon mark -->
+  <circle cx="24" cy="24" r="24" fill="#1A3A5C"/>
+  <circle cx="24" cy="24" r="7" fill="#F5A623"/>
+  <ellipse cx="24" cy="24" rx="19" ry="8" fill="none" stroke="#F5A623" stroke-width="2" transform="rotate(-35 24 24)"/>
+
+  <!-- Wordmark -->
+  <text
+    x="58"
+    y="31"
+    font-family="'Fraunces', Georgia, serif"
+    font-size="22"
+    font-weight="600"
+    letter-spacing="-0.5"
+    fill="#1A3A5C"
+  >OrbitForecast</text>
+</svg>
