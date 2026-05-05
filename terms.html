@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — OrbitForecast</title>
+<meta name="description" content="OrbitForecast Terms of Service — the rules and conditions governing your use of the OrbitForecast platform.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%231A3A5C'/><circle cx='16' cy='16' r='5' fill='%23F5A623'/><ellipse cx='16' cy='16' rx='13' ry='6' fill='none' stroke='%23F5A623' stroke-width='1.5' transform='rotate(-30 16 16)'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,300&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --sun: #F5A623;
+  --sky: #1A3A5C;
+  --sky-mid: #2C5F8A;
+  --cream: #FFFAF3;
+  --text: #1C1C1E;
+  --text-muted: #6B6B70;
+  --border: rgba(0,0,0,0.08);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 48px;
+  background: rgba(255,250,243,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Fraunces', serif;
+  font-size: 20px; font-weight: 600; color: var(--sky);
+  text-decoration: none; letter-spacing: -0.02em;
+}
+.logo-mark {
+  width: 34px; height: 34px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--sky); border-radius: 50%; flex-shrink: 0; position: relative;
+}
+.logo-mark svg { position: absolute; }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-link { font-size: 14px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.nav-link:hover { color: var(--text); }
+.nav-cta {
+  background: var(--sky); color: white;
+  padding: 10px 22px; border-radius: 100px;
+  font-size: 14px; font-weight: 500;
+  text-decoration: none; transition: background 0.2s, transform 0.15s; white-space: nowrap;
+}
+.nav-cta:hover { background: var(--sky-mid); transform: translateY(-1px); }
+
+/* CONTENT */
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 128px 24px 80px;
+}
+.page-header { margin-bottom: 48px; }
+.page-header h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 500;
+  color: var(--sky);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.page-header .meta { font-size: 14px; color: var(--text-muted); }
+.section { margin-bottom: 40px; }
+.section h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 20px; font-weight: 500;
+  color: var(--sky);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.section p, .section li {
+  font-size: 15px; line-height: 1.7;
+  color: var(--text); margin-bottom: 10px;
+}
+.section ul, .section ol { padding-left: 20px; margin-bottom: 10px; }
+.section li { margin-bottom: 6px; }
+a { color: var(--sky-mid); text-decoration: underline; }
+a:hover { color: var(--sky); }
+hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+/* FOOTER */
+footer {
+  background: var(--sky);
+  color: rgba(255,255,255,0.6);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+  padding: 32px 48px; font-size: 13px;
+}
+.footer-logo {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Fraunces', serif;
+  font-size: 16px; font-weight: 500;
+  color: white; letter-spacing: -0.02em;
+}
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+footer a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+footer a:hover { color: white; }
+
+@media (max-width: 640px) {
+  nav { padding: 14px 20px; }
+  .nav-link { display: none; }
+  footer { padding: 32px 20px; text-align: center; justify-content: center; }
+  .footer-links { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="logo-mark">
+      <svg width="34" height="34" viewBox="0 0 34 34">
+        <circle cx="17" cy="17" r="5" fill="#F5A623"/>
+        <ellipse cx="17" cy="17" rx="13" ry="5.5" fill="none" stroke="#F5A623" stroke-width="1.5" transform="rotate(-35 17 17)"/>
+      </svg>
+    </div>
+    OrbitForecast
+  </a>
+  <div class="nav-right">
+    <a href="/#features" class="nav-link">Features</a>
+    <a href="/#how" class="nav-link">How it works</a>
+    <a href="https://app.orbitforecast.com" class="nav-cta">Get early access</a>
+  </div>
+</nav>
+
+<main class="page">
+  <div class="page-header">
+    <h1>Terms of Service</h1>
+    <p class="meta">Effective date: May 5, 2026 &nbsp;·&nbsp; Duke Digital Ventures LLC</p>
+  </div>
+
+  <div class="section">
+    <p>These Terms of Service ("Terms") are a legal agreement between you and Duke Digital Ventures LLC ("we," "us," or "our"), the operator of OrbitForecast. By creating an account or using the OrbitForecast service at <a href="https://app.orbitforecast.com">app.orbitforecast.com</a> (the "Service"), you agree to be bound by these Terms. If you do not agree, do not use the Service.</p>
+  </div>
+
+  <div class="section">
+    <h2>1. Eligibility</h2>
+    <p>You must be at least 18 years old and capable of forming a binding contract to use the Service. By using the Service, you represent that you meet these requirements. The Service is intended for personal financial management and is not available to residents of jurisdictions where it would be prohibited by law.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Description of the Service</h2>
+    <p>OrbitForecast is a personal finance and cash flow forecasting tool. The Service allows you to:</p>
+    <ul>
+      <li>Connect bank and financial accounts via Plaid (read-only access).</li>
+      <li>View transaction history, account balances, and projected cash flow.</li>
+      <li>Receive AI-generated insights and commentary on your financial data.</li>
+    </ul>
+    <p>OrbitForecast is a financial <em>information</em> tool only. It does not provide investment advice, tax advice, legal advice, or any regulated financial service. Nothing in the Service constitutes a recommendation to buy, sell, or hold any financial instrument.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Account Registration and Security</h2>
+    <p>You agree to provide accurate and complete information when creating your account and to keep it up to date. You are responsible for maintaining the confidentiality of your login credentials and for all activity that occurs under your account. Notify us immediately at <a href="mailto:hello@orbitforecast.com">hello@orbitforecast.com</a> if you suspect unauthorized access.</p>
+    <p>You may not share your account with others or create accounts on behalf of another person without their consent.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Connecting Financial Accounts</h2>
+    <p>The Service uses Plaid Technologies, Inc. to connect to your financial institutions. By connecting an account, you authorize OrbitForecast and Plaid to access your financial data on a read-only basis. You agree to Plaid's <a href="https://plaid.com/legal/#end-user-privacy-policy" target="_blank" rel="noopener">End User Privacy Policy</a> and Plaid's terms of service. You may disconnect any financial institution at any time from within the app.</p>
+    <p>We are not responsible for the accuracy or completeness of data provided by your financial institution through Plaid. Account balances and transaction data are provided for informational purposes only and may not reflect real-time balances.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Acceptable Use</h2>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Use the Service for any unlawful purpose or in violation of these Terms.</li>
+      <li>Attempt to gain unauthorized access to any part of the Service or its infrastructure.</li>
+      <li>Reverse engineer, decompile, or disassemble any portion of the Service.</li>
+      <li>Scrape, crawl, or use automated means to access or extract data from the Service.</li>
+      <li>Interfere with or disrupt the integrity or performance of the Service.</li>
+      <li>Use the Service to store or transmit malicious code.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>6. Subscriptions and Payment</h2>
+    <p>The Service is currently available in an early-access phase. If and when paid plans are introduced, pricing and billing terms will be presented at checkout and incorporated into these Terms by reference. All fees are non-refundable except as required by applicable law or as expressly stated in the applicable plan terms.</p>
+    <p>We reserve the right to change pricing at any time with reasonable advance notice to existing subscribers.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Intellectual Property</h2>
+    <p>The Service, including its software, design, text, and graphics, is owned by Duke Digital Ventures LLC and protected by intellectual property laws. You are granted a limited, non-exclusive, non-transferable license to use the Service for your personal, non-commercial purposes. You may not reproduce, distribute, or create derivative works without our prior written consent.</p>
+    <p>You retain ownership of any financial data associated with your account. By using the Service, you grant us a limited license to process that data solely to provide and improve the Service as described in our <a href="/privacy">Privacy Policy</a>.</p>
+  </div>
+
+  <div class="section">
+    <h2>8. Disclaimers</h2>
+    <p>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, OR FREE OF HARMFUL COMPONENTS.</p>
+    <p>AI-generated insights are informational only and may be inaccurate. You should not make financial decisions based solely on content generated by the Service. Always consult a qualified financial professional for advice specific to your situation.</p>
+  </div>
+
+  <div class="section">
+    <h2>9. Limitation of Liability</h2>
+    <p>TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, DUKE DIGITAL VENTURES LLC AND ITS OFFICERS, DIRECTORS, EMPLOYEES, AND AGENTS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, ARISING OUT OF YOUR USE OF OR INABILITY TO USE THE SERVICE.</p>
+    <p>OUR TOTAL LIABILITY TO YOU FOR ANY CLAIM ARISING FROM OR RELATED TO THESE TERMS OR THE SERVICE SHALL NOT EXCEED THE GREATER OF (A) THE AMOUNTS YOU PAID US IN THE 12 MONTHS PRECEDING THE CLAIM, OR (B) $50 USD.</p>
+  </div>
+
+  <div class="section">
+    <h2>10. Indemnification</h2>
+    <p>You agree to indemnify and hold harmless Duke Digital Ventures LLC and its affiliates, officers, agents, and employees from any claim or demand, including reasonable attorneys' fees, made by any third party arising from your use of the Service, your violation of these Terms, or your violation of any rights of another.</p>
+  </div>
+
+  <div class="section">
+    <h2>11. Termination</h2>
+    <p>You may delete your account at any time from within the app's settings. We may suspend or terminate your access to the Service at any time, with or without notice, if we believe you have violated these Terms or for any other reason in our sole discretion.</p>
+    <p>Sections 7 (Intellectual Property), 8 (Disclaimers), 9 (Limitation of Liability), 10 (Indemnification), and 12 (Governing Law) survive termination.</p>
+  </div>
+
+  <div class="section">
+    <h2>12. Governing Law and Dispute Resolution</h2>
+    <p>These Terms are governed by the laws of the State of Delaware, without regard to its conflict of law principles. Any dispute arising from these Terms or the Service that cannot be resolved informally shall be submitted to binding arbitration administered by the American Arbitration Association under its Consumer Arbitration Rules, with proceedings conducted in English. The arbitration shall take place in Delaware, or at your election, via videoconference.</p>
+    <p><strong>Class action waiver.</strong> You and OrbitForecast agree that each may bring claims against the other only in an individual capacity, and not as a plaintiff or class member in any purported class or representative proceeding.</p>
+    <p>Notwithstanding the above, either party may seek injunctive or other equitable relief in any court of competent jurisdiction to prevent irreparable harm.</p>
+  </div>
+
+  <div class="section">
+    <h2>13. Changes to These Terms</h2>
+    <p>We may modify these Terms at any time. We will notify you of material changes by email or via an in-app notice at least 14 days before they take effect. Your continued use of the Service after the effective date constitutes your acceptance of the updated Terms. If you do not agree to the new Terms, you must stop using the Service and delete your account before the effective date.</p>
+  </div>
+
+  <div class="section">
+    <h2>14. Miscellaneous</h2>
+    <p>These Terms, together with our <a href="/privacy">Privacy Policy</a>, constitute the entire agreement between you and Duke Digital Ventures LLC regarding the Service. If any provision of these Terms is found to be unenforceable, the remaining provisions will remain in full force. Our failure to enforce any right or provision is not a waiver of that right. You may not assign these Terms without our prior written consent; we may assign them freely.</p>
+  </div>
+
+  <div class="section">
+    <h2>15. Contact</h2>
+    <p>Questions about these Terms? Reach us at:</p>
+    <p>
+      Duke Digital Ventures LLC<br>
+      <a href="mailto:legal@orbitforecast.com">legal@orbitforecast.com</a>
+    </p>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-logo">
+    <svg width="24" height="24" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="12" fill="rgba(255,255,255,0.15)"/>
+      <circle cx="12" cy="12" r="4" fill="#F5A623"/>
+      <ellipse cx="12" cy="12" rx="10" ry="4.5" fill="none" stroke="#F5A623" stroke-width="1.2" transform="rotate(-35 12 12)"/>
+    </svg>
+    OrbitForecast
+  </div>
+  <div class="footer-links">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="mailto:hello@orbitforecast.com">Contact</a>
+    <a href="https://app.orbitforecast.com">Sign in</a>
+  </div>
+  <div>© 2026 Duke Digital Ventures LLC</div>
+</footer>
+
+</body>
+</html>
