@@ -22,8 +22,8 @@ export default async function handler(req) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: 'OrbitForecast <admin@jwduke.ai>',
-        to: 'admin@jwduke.ai',
+        from: 'OrbitForecast <admin@orbitforecast.com>',
+        to: 'admin@orbitforecast.com',
         subject: `New waitlist signup: ${email}`,
         html: `
           <div style="font-family: sans-serif; max-width: 480px; margin: 0 auto; padding: 32px;">
