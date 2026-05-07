@@ -525,7 +525,8 @@ footer a:hover { color: white; }
   <div class="nav-right">
     <a href="#features" class="nav-link">Features</a>
     <a href="#how" class="nav-link">How it works</a>
-    <a href="#early-access" class="nav-cta">Get early access</a>
+    <a href="https://app.orbitforecast.com/login" class="nav-link">Sign in</a>
+    <a href="https://app.orbitforecast.com/signup" class="nav-cta">Get started free</a>
   </div>
 </nav>
 
@@ -538,7 +539,7 @@ footer a:hover { color: white; }
 
   <div class="hero-badge fade-up">
     <div class="badge-pulse"></div>
-    Now accepting early access
+    Now live — free to get started
   </div>
 
   <h1 class="fade-up">Know exactly where your<br><em>money is headed</em></h1>
@@ -547,9 +548,9 @@ footer a:hover { color: white; }
 
   <form class="hero-form fade-up" data-source="hero" onsubmit="handleSignup(event, this)">
     <input type="email" class="email-input" placeholder="your@email.com" required autocomplete="email">
-    <button type="submit" class="submit-btn">Get early access</button>
+    <button type="submit" class="submit-btn">Get started free</button>
   </form>
-  <p class="hero-trust fade-up">Free to join &nbsp;·&nbsp; No credit card needed</p>
+  <p class="hero-trust fade-up">Free forever &nbsp;·&nbsp; No credit card needed</p>
 </section>
 
 <!-- BROWSER PREVIEW -->
@@ -726,12 +727,12 @@ footer a:hover { color: white; }
 <!-- FINAL CTA -->
 <section class="cta-section" id="early-access">
   <h2 class="section-title fade-up">Ready to see clearly?</h2>
-  <p class="cta-sub fade-up">Join the waitlist and be first to know when OrbitForecast opens to the public.</p>
+  <p class="cta-sub fade-up">Create a free account in under a minute. No credit card required.</p>
   <form class="cta-form fade-up" data-source="cta" onsubmit="handleSignup(event, this)">
     <input type="email" class="email-input" placeholder="your@email.com" required autocomplete="email">
-    <button type="submit" class="submit-btn">Get early access</button>
+    <button type="submit" class="submit-btn">Create free account</button>
   </form>
-  <p class="cta-note fade-up">Free to join &nbsp;·&nbsp; No credit card needed &nbsp;·&nbsp; Unsubscribe anytime</p>
+  <p class="cta-note fade-up">Free forever &nbsp;·&nbsp; No credit card needed &nbsp;·&nbsp; Cancel anytime</p>
 </section>
 
 <!-- FOOTER -->
@@ -748,7 +749,7 @@ footer a:hover { color: white; }
     <a href="/privacy">Privacy</a>
     <a href="/terms">Terms</a>
     <a href="mailto:hello@orbitforecast.com">Contact</a>
-    <a href="https://app.orbitforecast.com">Sign in</a>
+    <a href="https://app.orbitforecast.com/login">Sign in</a>
   </div>
   <div>© 2026 Duke Digital Ventures LLC</div>
 </footer>
@@ -764,37 +765,17 @@ footer a:hover { color: white; }
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
 
-  async function handleSignup(e, form) {
+  function handleSignup(e, form) {
     e.preventDefault();
     const btn = form.querySelector('.submit-btn');
     const input = form.querySelector('.email-input');
     const email = input.value.trim();
-    const source = form.dataset.source || 'homepage';
 
-    btn.textContent = 'Joining...';
+    btn.textContent = 'Taking you there…';
     btn.disabled = true;
-    input.disabled = true;
 
-    try {
-      const res = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, source })
-      });
-      const data = await res.json();
-
-      if (data.success) {
-        btn.textContent = "You're on the list! 🎉";
-        btn.classList.add('success');
-      } else {
-        throw new Error(data.error || 'Unknown error');
-      }
-    } catch (err) {
-      btn.textContent = 'Try again';
-      btn.disabled = false;
-      input.disabled = false;
-      console.error('Signup error:', err);
-    }
+    // Redirect to app signup with email pre-filled
+    window.location.href = 'https://app.orbitforecast.com/signup?email=' + encodeURIComponent(email);
   }
 </script>
 </body>
