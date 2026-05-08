@@ -479,6 +479,68 @@ nav {
 .testi-name { font-size: 14px; font-weight: 500; color: var(--text); }
 .testi-role { font-size: 12px; color: var(--text-muted); margin-top: 1px; }
 
+/* ── SCREENSHOTS ── */
+.screenshots {
+  padding: 80px 24px 100px;
+  background: var(--sky);
+  overflow: hidden;
+}
+
+.screenshots-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.screenshots .section-eyebrow { color: rgba(255,255,255,0.5); }
+.screenshots .section-title { color: white; margin-bottom: 56px; }
+
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.screenshot-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.screenshot-phone {
+  width: 100%;
+  max-width: 260px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 32px 64px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.1);
+  background: #1a1a2e;
+}
+
+.screenshot-phone img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.screenshot-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.65);
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 768px) {
+  .screenshots-grid {
+    grid-template-columns: 1fr;
+    align-items: center;
+  }
+  .screenshot-phone {
+    max-width: 320px;
+  }
+}
+
 /* ── FINAL CTA ── */
 .cta-section {
   background: var(--sun-light); padding: 100px 24px;
@@ -683,6 +745,34 @@ footer a:hover { color: white; }
       <div class="feature-icon icon-earth">🔒</div>
       <div class="feature-title">Bank-level security</div>
       <p class="feature-desc">Your data is encrypted end-to-end. We use Plaid's read-only connection — we can never move your money, only read your transactions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENSHOTS -->
+<section class="screenshots">
+  <div class="screenshots-inner">
+    <p class="section-eyebrow fade-up">The app</p>
+    <h2 class="section-title fade-up">See it in action</h2>
+    <div class="screenshots-grid">
+      <div class="screenshot-item fade-up">
+        <div class="screenshot-phone">
+          <img src="screenshot-dashboard.png" alt="OrbitForecast dashboard showing account balances and cash flow" width="390" height="844" loading="lazy">
+        </div>
+        <p class="screenshot-label">Dashboard &amp; accounts</p>
+      </div>
+      <div class="screenshot-item fade-up">
+        <div class="screenshot-phone">
+          <img src="screenshot-forecast.png" alt="90-day cash flow forecast calendar" width="390" height="844" loading="lazy">
+        </div>
+        <p class="screenshot-label">90-day forecast</p>
+      </div>
+      <div class="screenshot-item fade-up">
+        <div class="screenshot-phone">
+          <img src="screenshot-ai.png" alt="AI financial advisor answering a question about spending" width="390" height="844" loading="lazy">
+        </div>
+        <p class="screenshot-label">AI advisor</p>
+      </div>
     </div>
   </div>
 </section>
