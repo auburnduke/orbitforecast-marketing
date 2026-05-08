@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+    background: #0D1B2A;
+    position: relative;
+  }
+
+  /* Deep space background */
+  .bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, #1A3A5C 0%, #0D1B2A 60%),
+                radial-gradient(ellipse at 80% 20%, #0f2a45 0%, transparent 50%);
+  }
+
+  /* Subtle grid */
+  .grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Glow orb */
+  .glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,166,35,0.12) 0%, transparent 70%);
+    top: -100px;
+    right: 60px;
+  }
+  .glow2 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,115,90,0.08) 0%, transparent 70%);
+    bottom: -50px;
+    left: 200px;
+  }
+
+  /* Orbit rings decorative */
+  .orbit-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(245,166,35,0.15);
+  }
+  .orbit-ring-1 {
+    width: 420px; height: 420px;
+    top: 50%; right: 80px;
+    transform: translateY(-50%) rotate(-35deg);
+    border-color: rgba(245,166,35,0.2);
+  }
+  .orbit-ring-2 {
+    width: 560px; height: 560px;
+    top: 50%; right: 0px;
+    transform: translateY(-50%) rotate(-35deg);
+    border-color: rgba(245,166,35,0.1);
+  }
+  .orbit-ring-3 {
+    width: 700px; height: 700px;
+    top: 50%; right: -80px;
+    transform: translateY(-50%) rotate(-35deg);
+    border-color: rgba(245,166,35,0.06);
+  }
+
+  /* Content */
+  .content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 70px 80px;
+  }
+
+  .logo-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+
+  .logo-mark {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+  }
+
+  .logo-name {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(245,166,35,0.15);
+    border: 1px solid rgba(245,166,35,0.35);
+    border-radius: 100px;
+    padding: 6px 14px;
+    margin-bottom: 22px;
+    width: fit-content;
+  }
+  .badge-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #F5A623;
+  }
+  .badge-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: #F5A623;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: 64px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 22px;
+    max-width: 620px;
+  }
+  h1 em {
+    font-style: italic;
+    color: #F5A623;
+  }
+
+  .sub {
+    font-size: 21px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+    max-width: 540px;
+    font-weight: 400;
+  }
+
+  /* Right side — mini app mockup */
+  .mockup {
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 260px;
+    background: #121f30;
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 22px 20px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+  }
+
+  .mockup-header {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .mockup-balance {
+    font-size: 30px;
+    font-weight: 800;
+    color: #4ADE80;
+    letter-spacing: -1px;
+    margin-bottom: 18px;
+  }
+
+  .mockup-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.07);
+    margin-bottom: 16px;
+  }
+
+  .mockup-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .mockup-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+  }
+  .mockup-val-green { font-size: 12px; font-weight: 700; color: #4ADE80; }
+  .mockup-val-red   { font-size: 12px; font-weight: 700; color: #F87171; }
+  .mockup-val-muted { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.6); }
+
+  /* Mini bar chart */
+  .chart {
+    margin-top: 16px;
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    height: 50px;
+  }
+  .bar {
+    flex: 1;
+    border-radius: 4px 4px 0 0;
+  }
+
+  .mockup-footer {
+    margin-top: 16px;
+    background: rgba(245,166,35,0.12);
+    border: 1px solid rgba(245,166,35,0.25);
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .mockup-footer-icon { font-size: 14px; }
+  .mockup-footer-text { font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.4; }
+
+  /* URL chip bottom left */
+  .url-chip {
+    position: absolute;
+    bottom: 44px;
+    left: 80px;
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.2px;
+  }
+</style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="grid"></div>
+  <div class="glow"></div>
+  <div class="glow2"></div>
+  <div class="orbit-ring orbit-ring-1"></div>
+  <div class="orbit-ring orbit-ring-2"></div>
+  <div class="orbit-ring orbit-ring-3"></div>
+
+  <div class="content">
+    <div class="logo-row">
+      <svg class="logo-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+        <circle cx="24" cy="24" r="24" fill="#1A3A5C"/>
+        <circle cx="24" cy="24" r="7" fill="#F5A623"/>
+        <ellipse cx="24" cy="24" rx="19" ry="8" fill="none" stroke="#F5A623" stroke-width="2" transform="rotate(-35 24 24)"/>
+      </svg>
+      <span class="logo-name">OrbitForecast</span>
+    </div>
+
+    <div class="badge">
+      <div class="badge-dot"></div>
+      <span class="badge-text">Cash Flow Intelligence</span>
+    </div>
+
+    <h1>Know exactly where<br>your money <em>goes.</em></h1>
+
+    <p class="sub">Connect your accounts. See 90 days ahead.<br>Stop guessing, start planning.</p>
+  </div>
+
+  <!-- Mini app mockup -->
+  <div class="mockup">
+    <div class="mockup-header">Available Balance</div>
+    <div class="mockup-balance">$12,480</div>
+    <div class="mockup-divider"></div>
+    <div class="mockup-row">
+      <span class="mockup-label">Monthly income</span>
+      <span class="mockup-val-green">+$5,200</span>
+    </div>
+    <div class="mockup-row">
+      <span class="mockup-label">Recurring spend</span>
+      <span class="mockup-val-red">−$3,840</span>
+    </div>
+    <div class="mockup-row">
+      <span class="mockup-label">Net cash flow</span>
+      <span class="mockup-val-muted">+$1,360/mo</span>
+    </div>
+
+    <div class="chart">
+      <div class="bar" style="height:30%;background:rgba(74,222,128,0.4)"></div>
+      <div class="bar" style="height:55%;background:rgba(74,222,128,0.4)"></div>
+      <div class="bar" style="height:40%;background:rgba(74,222,128,0.4)"></div>
+      <div class="bar" style="height:70%;background:rgba(74,222,128,0.5)"></div>
+      <div class="bar" style="height:60%;background:rgba(74,222,128,0.5)"></div>
+      <div class="bar" style="height:85%;background:#4ADE80"></div>
+      <div class="bar" style="height:75%;background:#4ADE80"></div>
+      <div class="bar" style="height:90%;background:#F5A623"></div>
+    </div>
+
+    <div class="mockup-footer">
+      <span class="mockup-footer-icon">✨</span>
+      <span class="mockup-footer-text">Orbit Assistant: "You'll have $14k by July at this rate."</span>
+    </div>
+  </div>
+
+  <div class="url-chip">orbitforecast.com</div>
+</body>
+</html>
