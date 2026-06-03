@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OrbitForecast — Know Where Your Money is Headed</title>
-<meta name="description" content="OrbitForecast connects to your bank accounts and shows you a clear picture of your cash flow — what's coming in, what's going out, and what's ahead.">
+<meta name="description" content="OrbitForecast connects to your bank accounts and shows you a clear 90-day picture of your cash flow — what's coming in, what's going out, and what's ahead. Free plan available.">
 <meta property="og:title" content="OrbitForecast — Know Where Your Money is Headed">
 <meta property="og:description" content="Smart cash flow forecasting powered by AI. Connect your accounts and see exactly where your money is headed.">
 <meta property="og:type" content="website">
@@ -27,12 +27,22 @@
   "operatingSystem": "Web, iOS, Android",
   "url": "https://app.orbitforecast.com",
   "description": "Personal cash flow tracking and 90-day balance forecasting powered by AI. Connect your bank accounts and see exactly where your money is headed.",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD",
-    "description": "Free plan available"
-  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Free",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free plan — 1 bank connection, 5 AI messages/month"
+    },
+    {
+      "@type": "Offer",
+      "name": "Pro",
+      "price": "9",
+      "priceCurrency": "USD",
+      "description": "Pro plan — unlimited bank connections, unlimited AI, full forecast"
+    }
+  ],
   "author": {
     "@type": "Organization",
     "name": "OrbitForecast",
@@ -265,85 +275,6 @@ nav {
 
 .app-body { padding: 24px; background: #F5F6FA; }
 
-.app-header {
-  display: flex; justify-content: space-between; align-items: center;
-  margin-bottom: 20px; padding-bottom: 16px;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-}
-
-.app-logo-text {
-  font-family: 'Fraunces', serif;
-  font-size: 17px; font-weight: 600; color: var(--sky);
-}
-
-.app-balance-wrap { text-align: right; }
-.app-balance-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; }
-.app-balance { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 500; color: var(--earth); letter-spacing: -0.02em; }
-
-.app-cards {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 12px; margin-bottom: 16px;
-}
-
-.app-card {
-  background: white; border-radius: 12px;
-  padding: 14px 16px; border: 1px solid var(--border);
-}
-
-.app-card-label {
-  font-size: 10px; color: var(--text-muted);
-  text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 7px;
-}
-
-.app-card-val {
-  font-family: 'Fraunces', serif;
-  font-size: 20px; font-weight: 500;
-}
-
-.c-green { color: var(--earth); }
-.c-red { color: var(--coral); }
-.c-blue { color: var(--sky); }
-
-.app-forecast {
-  background: white; border-radius: 12px;
-  padding: 16px 18px; border: 1px solid var(--border);
-}
-
-.app-forecast-label {
-  font-size: 10px; color: var(--text-muted);
-  text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px;
-}
-
-.bars { display: flex; align-items: flex-end; gap: 5px; height: 64px; }
-
-.bar {
-  flex: 1; border-radius: 3px 3px 0 0;
-  background: var(--earth-light);
-}
-.bar.hi { background: var(--earth); }
-
-/* ── SOCIAL PROOF ── */
-.proof { padding: 60px 24px 0; text-align: center; }
-.proof-inner { max-width: 700px; margin: 0 auto; }
-.proof-label { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
-.proof-avatars { display: flex; align-items: center; justify-content: center; gap: 0; margin-bottom: 10px; }
-
-.avatar {
-  width: 40px; height: 40px; border-radius: 50%;
-  border: 2.5px solid var(--cream);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 500; color: white;
-  margin-left: -10px; background: var(--sky-mid);
-}
-.avatar:first-child { margin-left: 0; }
-.av2 { background: var(--earth); }
-.av3 { background: var(--coral); }
-.av4 { background: var(--sun-dark); }
-.av5 { background: #7C3AED; }
-
-.proof-count { font-size: 14px; color: var(--text-muted); margin-top: 8px; }
-.proof-count strong { color: var(--text); font-weight: 500; }
-
 /* ── FEATURES ── */
 .features {
   padding: 100px 24px;
@@ -389,6 +320,7 @@ nav {
 .icon-sky  { background: var(--sky-light); }
 .icon-sun  { background: var(--sun-light); }
 .icon-earth{ background: var(--earth-light); }
+.icon-coral{ background: rgba(232,115,90,0.12); }
 
 .feature-title {
   font-family: 'Fraunces', serif;
@@ -444,6 +376,111 @@ nav {
 }
 
 .step-desc { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.65; }
+
+/* ── PRICING ── */
+.pricing {
+  padding: 100px 24px;
+  max-width: 1000px; margin: 0 auto;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.pricing-card {
+  background: var(--card); border-radius: var(--radius);
+  padding: 36px; border: 1px solid var(--border);
+  position: relative;
+}
+
+.pricing-card.featured {
+  border: 2px solid var(--sky);
+  box-shadow: 0 20px 60px rgba(26,58,92,0.12);
+}
+
+.pricing-badge {
+  position: absolute; top: -13px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--sky); color: white;
+  font-size: 11px; font-weight: 700;
+  padding: 4px 14px; border-radius: 100px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pricing-tier {
+  font-size: 12px; font-weight: 700;
+  color: var(--text-muted); text-transform: uppercase;
+  letter-spacing: 0.1em; margin-bottom: 8px;
+}
+
+.pricing-tier.featured { color: var(--sky); }
+
+.pricing-price {
+  font-family: 'Fraunces', serif;
+  font-size: 48px; font-weight: 500;
+  color: var(--sky); line-height: 1;
+  margin-bottom: 4px; letter-spacing: -0.03em;
+}
+
+.pricing-period {
+  font-size: 14px; color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.pricing-desc {
+  font-size: 14px; color: var(--text-muted);
+  line-height: 1.5; margin-bottom: 28px;
+  min-height: 40px;
+}
+
+.pricing-features {
+  list-style: none; margin-bottom: 32px;
+}
+
+.pricing-features li {
+  font-size: 14px; color: var(--text-muted);
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 10px;
+}
+
+.pricing-features li:last-child { border-bottom: none; }
+
+.pricing-features li::before {
+  content: '✓'; color: var(--earth);
+  font-weight: 700; font-size: 13px; flex-shrink: 0;
+}
+
+.pricing-cta {
+  display: block; width: 100%;
+  padding: 13px; border-radius: 100px;
+  font-size: 15px; font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  text-align: center; text-decoration: none;
+  cursor: pointer; border: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.pricing-cta:hover { transform: translateY(-1px); }
+
+.pricing-cta.primary {
+  background: var(--sky); color: white;
+}
+.pricing-cta.primary:hover { background: var(--sky-mid); }
+
+.pricing-cta.secondary {
+  background: var(--sky-light); color: var(--sky);
+}
+.pricing-cta.secondary:hover { background: #d4e4f5; }
+
+.pricing-note {
+  font-size: 12px; color: var(--text-muted);
+  text-align: center; margin-top: 10px;
+}
 
 /* ── TESTIMONIALS ── */
 .testimonials { padding: 100px 24px; max-width: 1060px; margin: 0 auto; }
@@ -595,7 +632,6 @@ footer a:hover { color: white; }
   .nav-link { display: none; }
   .hero-form, .cta-form { flex-direction: column; }
   .submit-btn { width: 100%; text-align: center; }
-  .app-cards { grid-template-columns: 1fr 1fr; }
   footer { padding: 32px 20px; text-align: center; justify-content: center; }
   .footer-links { justify-content: center; }
 }
@@ -617,6 +653,7 @@ footer a:hover { color: white; }
   <div class="nav-right">
     <a href="#features" class="nav-link">Features</a>
     <a href="#how" class="nav-link">How it works</a>
+    <a href="#pricing" class="nav-link">Pricing</a>
     <a href="https://app.orbitforecast.com/login" class="nav-link">Sign in</a>
     <a href="https://app.orbitforecast.com/signup" class="nav-cta">Get started free</a>
   </div>
@@ -642,7 +679,7 @@ footer a:hover { color: white; }
     <input type="email" class="email-input" placeholder="your@email.com" required autocomplete="email">
     <button type="submit" class="submit-btn">Get started free</button>
   </form>
-  <p class="hero-trust fade-up">Free plan available &nbsp;·&nbsp; No credit card needed</p>
+  <p class="hero-trust fade-up">Free plan available &nbsp;·&nbsp; 7-day Pro trial &nbsp;·&nbsp; No credit card needed</p>
 </section>
 
 <!-- BROWSER PREVIEW -->
@@ -658,43 +695,66 @@ footer a:hover { color: white; }
   </div>
 </div>
 
-<!-- SOCIAL PROOF -->
-
 <!-- FEATURES -->
 <section class="features" id="features">
   <p class="section-eyebrow fade-up">Why OrbitForecast</p>
   <h2 class="section-title fade-up">Your finances,<br>finally in focus</h2>
   <div class="features-grid">
+
     <div class="feature-card fade-up">
       <div class="feature-icon icon-sky">🏦</div>
       <div class="feature-title">All your accounts, one view</div>
-      <p class="feature-desc">Connect your checking, savings, and credit accounts securely via Plaid. See everything in one clean dashboard — no more logging into five different apps.</p>
+      <p class="feature-desc">Connect checking, savings, credit, and investment accounts securely via Plaid. See balances, net worth, and cash flow all in one clean dashboard.</p>
     </div>
+
     <div class="feature-card fade-up">
       <div class="feature-icon icon-sun">🔮</div>
-      <div class="feature-title">Cash flow forecasting</div>
-      <p class="feature-desc">OrbitForecast analyzes your recurring income and bills to predict your balance weeks ahead. No more surprises right before rent is due.</p>
+      <div class="feature-title">90-day cash flow forecast</div>
+      <p class="feature-desc">See a confidence-band projection of your balance weeks ahead, powered by your real spending patterns and scheduled bills. No more surprises right before rent is due.</p>
     </div>
+
     <div class="feature-card fade-up">
       <div class="feature-icon icon-earth">🤖</div>
-      <div class="feature-title">Orbit Assistant — AI powered</div>
-      <p class="feature-desc">Ask anything about your finances in plain English. Orbit Assistant runs real projections with your actual data — scenario modeling, spending breakdowns, and "what if" analysis, powered by Claude AI.</p>
+      <div class="feature-title">Orbit Assistant — AI advisor</div>
+      <p class="feature-desc">Ask anything in plain English. Orbit Assistant runs real projections with your actual data — "What if I lose my job?" "Can I afford a car payment?" — powered by Claude AI.</p>
     </div>
+
+    <div class="feature-card fade-up">
+      <div class="feature-icon icon-coral">💭</div>
+      <div class="feature-title">What If? scenario modeling</div>
+      <p class="feature-desc">Model any financial scenario instantly. Add a new expense, simulate a raise, or test a spending cut — and see exactly how your 90-day balance changes in real time.</p>
+    </div>
+
     <div class="feature-card fade-up">
       <div class="feature-icon icon-sky">📊</div>
-      <div class="feature-title">Spending breakdown</div>
-      <p class="feature-desc">See exactly where your money goes each month, broken down by category. Spot patterns you didn't know existed and find easy wins.</p>
+      <div class="feature-title">Net worth &amp; spending trends</div>
+      <p class="feature-desc">Track assets vs liabilities for a complete net worth picture. See month-over-month spending patterns by category with sparklines that reveal trends at a glance.</p>
     </div>
+
     <div class="feature-card fade-up">
-      <div class="feature-icon icon-sun">🔔</div>
+      <div class="feature-icon icon-sun">🏦</div>
+      <div class="feature-title">Loan payoff simulator</div>
+      <p class="feature-desc">See exactly when your loans are paid off. Model extra monthly payments or a lump sum — instantly see how many months you save and how much interest you avoid.</p>
+    </div>
+
+    <div class="feature-card fade-up">
+      <div class="feature-icon icon-earth">📅</div>
+      <div class="feature-title">Bill &amp; income schedule</div>
+      <p class="feature-desc">Plaid automatically detects your recurring bills and income. Add manual entries for anything it misses. Every upcoming payment feeds directly into your forecast.</p>
+    </div>
+
+    <div class="feature-card fade-up">
+      <div class="feature-icon icon-sky">🔔</div>
       <div class="feature-title">Smart alerts</div>
-      <p class="feature-desc">Get notified before your balance dips below your cushion. Stay ahead of upcoming bills so you're never caught off guard.</p>
+      <p class="feature-desc">Get email alerts before your balance dips below your safety cushion, when a big bill is coming, or when you're close to a budget limit. Stay ahead — not behind.</p>
     </div>
+
     <div class="feature-card fade-up">
-      <div class="feature-icon icon-earth">🔒</div>
+      <div class="feature-icon icon-sun">🔒</div>
       <div class="feature-title">Bank-level security</div>
-      <p class="feature-desc">Your data is encrypted end-to-end. We use Plaid's read-only connection — we can never move your money, only read your transactions.</p>
+      <p class="feature-desc">Your data is encrypted end-to-end. Plaid's read-only connection means we can never move your money — only read your transactions to build your forecast.</p>
     </div>
+
   </div>
 </section>
 
@@ -741,20 +801,83 @@ footer a:hover { color: white; }
       <div class="step fade-up">
         <div class="step-num">02</div>
         <div class="step-title">See your full picture</div>
-        <p class="step-desc">Your dashboard instantly shows balances, spending patterns, upcoming bills, and your 90-day cash flow forecast.</p>
+        <p class="step-desc">Your dashboard instantly shows balances, net worth, spending trends, upcoming bills, and your personalized 90-day cash flow forecast.</p>
       </div>
       <div class="step fade-up">
         <div class="step-num">03</div>
         <div class="step-title">Stay ahead</div>
-        <p class="step-desc">Get alerts before you're low on cash. Ask Orbit Assistant to model any "what if" scenario with your real numbers. Know your finances like never before.</p>
+        <p class="step-desc">Get smart alerts before you're low on cash. Ask Orbit Assistant to model any "what if" scenario with your real numbers. Know your finances like never before.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS — placeholder section, hidden until real quotes collected -->
-<!-- To restore: remove display:none from the section style -->
-<section class="testimonials" style="display:none">
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <p class="section-eyebrow fade-up">Pricing</p>
+  <h2 class="section-title fade-up">Simple, honest pricing</h2>
+
+  <div class="pricing-grid">
+
+    <!-- FREE -->
+    <div class="pricing-card fade-up">
+      <div class="pricing-tier">Free</div>
+      <div class="pricing-price">$0</div>
+      <div class="pricing-period">forever</div>
+      <p class="pricing-desc">Get started, no card needed.</p>
+      <ul class="pricing-features">
+        <li>1 bank connection</li>
+        <li>90-day cash flow forecast</li>
+        <li>Transaction history &amp; categorization</li>
+        <li>Bill &amp; income schedule</li>
+        <li>5 Orbit Assistant messages / month</li>
+        <li>Smart alerts</li>
+      </ul>
+      <a href="https://app.orbitforecast.com/signup" class="pricing-cta secondary">Get started free</a>
+    </div>
+
+    <!-- PRO TRIAL -->
+    <div class="pricing-card featured fade-up">
+      <div class="pricing-badge">Most popular</div>
+      <div class="pricing-tier featured">Pro Trial</div>
+      <div class="pricing-price">Free</div>
+      <div class="pricing-period">for 7 days, then $9/mo</div>
+      <p class="pricing-desc">Try everything Pro has to offer — no credit card required.</p>
+      <ul class="pricing-features">
+        <li>Unlimited bank connections</li>
+        <li>Full 90-day forecast + What If? modeling</li>
+        <li>Unlimited Orbit Assistant messages</li>
+        <li>Net worth tracking</li>
+        <li>Spending trends &amp; month-over-month</li>
+        <li>Loan payoff simulator</li>
+        <li>Budget limits &amp; savings goals</li>
+        <li>Priority smart alerts</li>
+      </ul>
+      <a href="https://app.orbitforecast.com/signup" class="pricing-cta primary">Start free trial</a>
+      <p class="pricing-note">No credit card · Cancel anytime</p>
+    </div>
+
+    <!-- PRO -->
+    <div class="pricing-card fade-up">
+      <div class="pricing-tier">Pro</div>
+      <div class="pricing-price">$9</div>
+      <div class="pricing-period">per month</div>
+      <p class="pricing-desc">Everything in the trial, ongoing.</p>
+      <ul class="pricing-features">
+        <li>Unlimited bank connections</li>
+        <li>Full 90-day forecast + What If? modeling</li>
+        <li>Unlimited Orbit Assistant messages</li>
+        <li>Net worth tracking</li>
+        <li>Spending trends &amp; month-over-month</li>
+        <li>Loan payoff simulator</li>
+        <li>Budget limits &amp; savings goals</li>
+        <li>Priority smart alerts</li>
+      </ul>
+      <a href="https://app.orbitforecast.com/signup" class="pricing-cta secondary">Start with Pro</a>
+      <p class="pricing-note">Secure checkout via Stripe</p>
+    </div>
+
+  </div>
 </section>
 
 <!-- FINAL CTA -->
@@ -765,7 +888,7 @@ footer a:hover { color: white; }
     <input type="email" class="email-input" placeholder="your@email.com" required autocomplete="email">
     <button type="submit" class="submit-btn">Create free account</button>
   </form>
-  <p class="cta-note fade-up">Free plan available &nbsp;·&nbsp; No credit card needed &nbsp;·&nbsp; Cancel anytime</p>
+  <p class="cta-note fade-up">Free plan available &nbsp;·&nbsp; 7-day Pro trial &nbsp;·&nbsp; No credit card needed &nbsp;·&nbsp; Cancel anytime</p>
 </section>
 
 <!-- FOOTER -->
@@ -779,6 +902,8 @@ footer a:hover { color: white; }
     OrbitForecast
   </div>
   <div class="footer-links">
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
     <a href="/privacy">Privacy</a>
     <a href="/terms">Terms</a>
     <a href="mailto:hello@orbitforecast.com">Contact</a>
